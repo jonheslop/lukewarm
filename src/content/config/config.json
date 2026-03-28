@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "Lukewarm",
+    "description": "We help brands on social be less mid.",
+    "siteOwner": "Lukewarm"
+  },
+  "nav": [
+    {
+      "title": "Home",
+      "link": "/"
+    },
+    {
+      "title": "Work",
+      "link": "/work"
+    },
+    {
+      "title": "About",
+      "link": "/about"
+    }
+  ]
+}

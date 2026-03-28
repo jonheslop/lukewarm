@@ -1,0 +1,26 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import config from "../../content/config/config.json";
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+
+const posts = (await getCollection("work")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={config.seo.title} description={config.seo.description} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Hello world</h1>
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,180 @@
+:root {
+  --black: #111;
+  --light-grey: #f9f9f9;
+  --light-green: #c8e64f;
+  --pastel-blue: #b7d1da;
+  --pastel-pink: #e6d8f7;
+  --green: #a6c071;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: rgb(var(--gray-dark));
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+main {
+  width: 100%;
+  padding: .5em;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 100dvh;
+}
+
+@media (min-width: 768px) {
+  main {
+    padding: 2em;
+  }
+}
+
+article {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  article {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+article .date {
+  font-size: 0.875rem;
+}
+
+article h1 {
+  margin: 0 0 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.sr-only {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+  clip: rect(1px 1px 1px 1px);
+  /* maybe deprecated but we need to support legacy browsers */
+  clip: rect(1px, 1px, 1px, 1px);
+  /* modern browsers, clip-path works inwards from each corner */
+  clip-path: inset(50%);
+  /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+  white-space: nowrap;
+}
+
+main a:link,
+main a:visited {
+  color: var(--accent-dark);
+  border-bottom: 2px solid transparent;
+}
+
+main a:hover {
+  color: var(--accent);
+}
+
+.prose {
+  max-width: 38rem;
+  color: rgb(var(--gray-dark));
+  font-weight: 300;
+  text-wrap: pretty;
+}
+
+.prose-wide {
+  max-width: 640px;
+}
+
+.prose p {
+  margin: 0;
+}
+
+.prose p+p {
+  margin-top: 1rem;
+}
+
+.prose ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.prose h2 {
+  font-size: 1.125em;
+  font-weight: 500;
+  margin: 2rem 0 0;
+}
+
+.work-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 4rem 2rem;
+  width: 100%;
+}
+
+.work-list li {
+  align-self: end;
+}
+
+.work-list a:link,
+.work-list a:visited {
+  color: var(--black);
+  text-decoration: none;
+}
+
+.work-list header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.work-list h4,
+.work-list p {
+  margin: 0;
+}
+
+.work-list p {
+  font-size: .875rem;
+  color: rgb(var(--gray-mid));
+}
+
+.artworks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 4rem 2rem;
+  width: 100%;
+}
+
+.artwork {
+  align-self: end;
+  cursor: zoom-in;
+}
+
+.artwork p {
+  font-size: .875rem;
+  margin: 0;
+  color: rgb(var(--gray-mid));
+  text-wrap: pretty;
+}

@@ -1,0 +1,17 @@
+---
+import config from "../content/config/config.json";
+const today = new Date();
+---
+
+<footer class="copyright-footer">
+  &copy; {today.getFullYear()}
+  {config.seo.siteOwner}. All rights reserved.
+</footer>
+
+<style>
+  .copyright-footer {
+    padding: 2em 1em 2em 1em;
+    color: rgb(var(--gray));
+    text-align: center;
+  }
+</style>

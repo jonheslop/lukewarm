@@ -1,0 +1,60 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import config from "../content/config/config.json";
+---
+
+<header>
+  <nav>
+    <h2><a href="/">{config.seo.title}</a></h2>
+    <div class="internal-links">
+      {
+        config.nav.map((nav) => (
+          <HeaderLink href={nav.link}>{nav.title}</HeaderLink>
+        ))
+      }
+    </div>
+  </nav>
+</header>
+<style>
+  header {
+    margin: 0;
+    padding: 1em;
+  }
+
+  @media (min-width: 768px) {
+    header {
+      padding: 1em 2em;
+    }
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: normal;
+    letter-spacing: -0.0125rem;
+  }
+
+  h2 a,
+  h2 a.active {
+    text-decoration: none;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .internal-links {
+    display: flex;
+    gap: 1rem;
+  }
+  nav a {
+    color: var(--black);
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+  }
+  nav a.active {
+    text-decoration: none;
+    border-bottom-color: var(--accent);
+  }
+</style>
