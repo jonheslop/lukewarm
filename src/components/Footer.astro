@@ -3,15 +3,45 @@ import config from "../content/config/config.json";
 const today = new Date();
 ---
 
-<footer class="copyright-footer">
-  &copy; {today.getFullYear()}
-  {config.seo.siteOwner}. All rights reserved.
+<footer class="footer">
+  <ul>
+    <li>
+      <a href="https://www.linkedin.com/company/lukewarmsocial/">LinkedIn</a>
+    </li>
+    <li><a href="https://www.instagram.com/lukewarmsocial">Instagram</a></li>
+    <li><a href="https://www.tiktok.com/@lukewarmsocial">TikTok</a></li>
+  </ul>
+  <a href="mailto:hello@lukewarmsocial.com">hello@lukewarmsocial.com</a>
+
+  <div class="legal">
+    <p>
+      Lukewarm Social Ltd is a company registered in England and Wales. Company
+      number: 16902883
+    </p>
+    <p>
+      &copy; {today.getFullYear()}
+      {config.seo.siteOwner}. All rights reserved.
+    </p>
+  </div>
 </footer>
 
 <style>
-  .copyright-footer {
-    padding: 2em 1em 2em 1em;
-    color: rgb(var(--gray));
-    text-align: center;
+  .footer {
+    padding: 2em 4rem;
+    display: grid;
+    grid-template-columns: 1fr [start] 1fr 1fr 1fr [end] 1fr;
+  }
+  .footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    grid-column: start;
+  }
+  .footer p {
+    margin: 0;
+  }
+  .legal {
+    grid-column: end;
+    font-size: 0.8em;
   }
 </style>

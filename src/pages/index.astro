@@ -1,21 +1,233 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import config from "../content/config/config.json";
-import client from "../../tina/__generated__/client";
-import HomePage from "../../tina/pages/HomePage.tsx";
-const data = await client.queries.page({ relativePath: "home.mdx" });
+import Layout from "../components/Layout.astro";
+// import client from "../../tina/__generated__/client";
+// import HomePage from "../../tina/pages/HomePage.tsx";
+// const data = await client.queries.page({ relativePath: "home.mdx" });
+import { Image } from "astro:assets";
+
+import ian from "../assets/ian-1.jpg";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={config.seo.title} description={config.seo.description} />
-  </head>
-  <body>
-    <Header />
-    <HomePage {...data} client:tina />
-    <Footer />
-  </body>
-</html>
+<Layout>
+  <div class="panel">
+    <!-- <HomePage {...data} client:tina /> -->
+    <article>
+      <blockquote class="hero-quote">
+        <p>
+          Beware the lollipop of mediocrity. Lick it once and you’ll suck
+          forever.
+        </p>
+        <cite>— Brian Wilson</cite>
+      </blockquote>
+    </article>
+  </div>
+  <div class="panel">
+    <article>
+      <h2>Who we are</h2>
+      <p>Lukewarm is a social-first creative studio built on 3 core beliefs:</p>
+      <ol>
+        <li>All brands are now entertainment brands.</li>
+        <li>Social displaced TV advertising years ago.</li>
+        <li>AI-led studios will own the future.</li>
+      </ol>
+    </article>
+  </div>
+  <div class="panel">
+    <article>
+      <blockquote class="hero-quote">
+        <p class="big">We help brands on social be less mid.</p>
+      </blockquote>
+    </article>
+  </div>
+  <div class="panel">
+    <article>
+      <h2>Our services</h2>
+      <ol>
+        <li>Community</li>
+        <li>Content</li>
+        <li>Campaigns</li>
+        <li>Creators</li>
+      </ol>
+      <p>Nail all 4 and watch your brand catch fire.</p>
+    </article>
+  </div>
+  <div class="panel">
+    <article>
+      <h2>Founding team</h2>
+      <div class="team">
+        <Image
+          loading="eager"
+          src={ian}
+          width={1024}
+          height={768}
+          alt="Ian Gambier"
+          class="portrait"
+        />
+
+        <div>
+          <h3>Ian Gambier</h3>
+          <h4>Founder and CCO</h4>
+          <p>
+            An award-winning Creative Director and Copywriter who’s spent 15
+            years making brands impossible to ignore on social. With leadership
+            roles across Fabric Social, Publicis, Meta, R/GA and Engine, he
+            combines big agency thinking with platform-native instinct.
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="panel">
+    <article>
+      <h2>Trusted by</h2>
+      <ul>
+        <li>Amazon</li>
+        <li>Anchor</li>
+        <li>Andrex</li>
+        <li>Braun</li>
+        <li>Budweiser</li>
+        <li>Capital One</li>
+        <li>Cesar</li>
+        <li>Check One Two</li>
+        <li>Cravendale</li>
+        <li>Currys</li>
+        <li>EE</li>
+        <li>Garnier</li>
+        <li>Glenfiddich</li>
+        <li>Jack Daniel’s</li>
+        <li>Jack Daniel’s</li>
+        <li>Johnnie Walker</li>
+        <li>Kleenex</li>
+        <li>Lounge by Zalando</li>
+        <li>Lurpak</li>
+        <li>Lyft</li>
+        <li>Madlug</li>
+        <li>Magic Leap</li>
+        <li>Magners</li>
+        <li>Meta Quest</li>
+        <li>Microsoft</li>
+        <li>Nandos</li>
+        <li>NBC Universal</li>
+        <li>Next</li>
+        <li>Ocado</li>
+        <li>Purina</li>
+        <li>Samsung</li>
+        <li>Sky</li>
+        <li>Subway</li>
+        <li>Supercell</li>
+        <li>The History Channel</li>
+        <li>TRESemmé</li>
+        <li>Visa</li>
+        <li>VO5</li>
+        <li>Yakult</li>
+      </ul>
+    </article>
+  </div>
+</Layout>
+
+<style>
+  .panel {
+    margin: 4rem 0;
+    padding: 0 4rem;
+  }
+
+  .panel + .panel {
+    margin: 12rem 0;
+  }
+
+  .hero-quote {
+    margin: 0;
+    grid-column: content;
+  }
+
+  .hero-quote p {
+    font-family: var(--font-anton);
+    font-size: 6rem;
+    line-height: 1;
+    text-wrap: balance;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .hero-quote p.big {
+    font-size: 8rem;
+  }
+
+  cite {
+    font-style: normal;
+    font-size: 2rem;
+  }
+
+  article {
+    display: grid;
+    grid-template-columns: [title] 1fr [content] 4fr;
+  }
+
+  article h2 {
+    font-size: 2rem;
+    font-family: var(--font-anton);
+    text-transform: uppercase;
+    font-weight: normal;
+    margin: 0;
+    grid-column: title;
+  }
+
+  article h3,
+  article h4 {
+    margin: 0;
+    line-height: 1;
+  }
+
+  article h3 {
+    font-size: 2rem;
+    margin-top: -0.125rem;
+  }
+
+  article h4 {
+    font-size: 1.2rem;
+  }
+
+  article > p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    grid-column: content;
+  }
+
+  article p {
+    max-width: 60ch;
+  }
+
+  article li {
+    font-size: 1.5rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+    grid-column: content;
+  }
+
+  ol {
+    margin: 0;
+    padding: 0;
+    grid-column: content;
+    list-style-position: inside;
+  }
+
+  .team {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .portrait {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+</style>

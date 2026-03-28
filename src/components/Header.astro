@@ -1,11 +1,22 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import config from "../content/config/config.json";
+import { Image } from "astro:assets";
+
+import logo from "../assets/lukewarm-logo.png";
 ---
 
 <header>
-  <nav>
-    <h2><a href="/">{config.seo.title}</a></h2>
+  <a href="/" title={config.seo.title}
+    ><Image
+      loading="eager"
+      src={logo}
+      width={256}
+      height={103.25}
+      alt="Lukewarm logo"
+    />
+  </a>
+  <!-- <nav>
     <div class="internal-links">
       {
         config.nav.map((nav) => (
@@ -13,12 +24,15 @@ import config from "../content/config/config.json";
         ))
       }
     </div>
-  </nav>
+  </nav> -->
 </header>
 <style>
   header {
     margin: 0;
     padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   @media (min-width: 768px) {

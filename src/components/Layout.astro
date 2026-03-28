@@ -1,0 +1,29 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import config from "../content/config/config.json";
+import { Font } from "astro:assets";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={config.seo.title} description={config.seo.description} />
+    <Font cssVariable="--font-anton" />
+    <Font cssVariable="--font-mona" />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>
+
+<style>
+  body {
+    background-color: var(--light-green);
+    font-family: var(--font-mona);
+    color: var(--black);
+  }
+</style>
