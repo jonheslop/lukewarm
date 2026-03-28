@@ -10,7 +10,9 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   site: process.env.SITE_URL || "https://lukewarm.albion-dev.workers.dev",
   integrations: [mdx(), sitemap(), react(), tinaDirective()],
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: "compile",
+  }),
   fonts: [{
     provider: fontProviders.fontsource(),
     name: "Anton",
