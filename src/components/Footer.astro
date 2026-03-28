@@ -27,21 +27,33 @@ const today = new Date();
 
 <style>
   .footer {
-    padding: 2em 4rem;
+    padding: 2em 0.5rem;
     display: grid;
-    grid-template-columns: 1fr [start] 1fr 1fr 1fr [end] 1fr;
+    gap: 4rem;
   }
   .footer ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    grid-column: start;
   }
   .footer p {
     margin: 0;
   }
   .legal {
-    grid-column: end;
     font-size: 0.8em;
+  }
+
+  @media (min-width: 768px) {
+    .footer {
+      padding: 2em 4rem;
+      grid-template-columns: 1fr [start] 1fr 1fr 1fr [end] 1fr;
+      gap: 0rem;
+    }
+    .footer ul {
+      grid-column: start;
+    }
+    .legal {
+      grid-column: end;
+    }
   }
 </style>

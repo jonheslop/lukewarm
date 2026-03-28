@@ -127,8 +127,14 @@ import ian from "../assets/ian-1.jpg";
 
 <style>
   .panel {
-    margin: 4rem 0;
-    padding: 0 4rem;
+    margin: 0.5rem 0;
+    padding: 0 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .panel {
+      margin: 4rem 0;
+      padding: 0 4rem;
+    }
   }
 
   .panel + .panel {
@@ -142,7 +148,7 @@ import ian from "../assets/ian-1.jpg";
 
   .hero-quote p {
     font-family: var(--font-anton);
-    font-size: 6rem;
+    font-size: 2rem;
     line-height: 1;
     text-wrap: balance;
     text-transform: uppercase;
@@ -150,7 +156,7 @@ import ian from "../assets/ian-1.jpg";
   }
 
   .hero-quote p.big {
-    font-size: 8rem;
+    font-size: 3rem;
   }
 
   cite {
@@ -160,7 +166,22 @@ import ian from "../assets/ian-1.jpg";
 
   article {
     display: grid;
-    grid-template-columns: [title] 1fr [content] 4fr;
+    grid-template-columns: [content] 1fr;
+  }
+
+  @media (min-width: 768px) {
+    article {
+      display: grid;
+      grid-template-columns: [title] 1fr [content] 4fr;
+    }
+
+    .hero-quote p {
+      font-size: 6rem;
+    }
+
+    .hero-quote p.big {
+      font-size: 8rem;
+    }
   }
 
   article h2 {
@@ -169,7 +190,12 @@ import ian from "../assets/ian-1.jpg";
     text-transform: uppercase;
     font-weight: normal;
     margin: 0;
-    grid-column: title;
+  }
+
+  @media (min-width: 768px) {
+    article h2 {
+      grid-column: title;
+    }
   }
 
   article h3,
@@ -221,13 +247,20 @@ import ian from "../assets/ian-1.jpg";
 
   .team {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .team {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
   }
 
   .portrait {
     width: 100%;
     max-width: 100%;
     height: auto;
+    margin-bottom: 1rem;
   }
 </style>
