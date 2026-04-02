@@ -1,21 +1,11 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import config from "../content/config/config.json";
-import { Image } from "astro:assets";
-
-import logo from "../assets/lukewarm-logo.png";
+import Logo from "./Logo.astro";
 ---
 
 <header>
-  <a href="/" title={config.seo.title}
-    ><Image
-      loading="eager"
-      src={logo}
-      width={256}
-      height={103.25}
-      alt="Lukewarm logo"
-    />
-  </a>
+  <Logo />
   <!-- <nav>
     <div class="internal-links">
       {
